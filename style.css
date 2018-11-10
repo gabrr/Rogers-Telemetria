@@ -1,0 +1,463 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+@keyframes loading{
+    from{ opacity: 0;}
+    to{ opacity: 1;}
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    animation-name: loading;
+    animation-direction: alternate;
+    animation-duration: 3s;
+}
+h1{font-family: 'Open Sans Condensed', sans-serif;text-transform: uppercase;font-weight: 700;}
+h2{font-size: 60px;font-family: 'Open Sans Condensed', sans-serif;font-weight: bolder;}
+p{font-size: 17px;font-family: 'Lora', serif;font-weight: lighter;}
+a{text-decoration: none;padding: 18px;font-family: 'Lato', sans-serif;}
+/**the navigation bar and its elements, the mobile version first**/
+@media only screen and (max-width: 767px){
+    .nav-btn{
+        display: none;
+    }
+}
+.navigation{
+    position: fixed;
+    height: 0;
+    width: 100%;
+    z-index: 2;
+    transition: all .4s ease;
+}
+.navbar-colored{
+    height: 56px;
+    color: #fff;
+    background-color: #000;
+}
+.logo1{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 10px 0 0 20px;
+}
+#nav-toggle{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 18px 23px;
+}
+.bar1, .bar2, .bar3{
+    width: 30px;
+    height: 1px;
+    background-color: #fff;
+    margin-bottom: 6px;
+    transition: .6s;
+}
+.activated .bar1{
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+.activated .bar2{
+    opacity: 0;
+}
+
+.activated .bar3{
+    transform: rotate(225deg) translate(3px, 0px);
+}
+.nav-links{
+    height: 0;
+    width: 100%;
+    padding-top: 0;
+    font-size: 0;
+    z-index: 1;
+    position: fixed;
+    transition: .5s;
+}
+.nav-links ul li{
+    list-style: none;
+    padding: 0px 0; 
+    display: none;
+    transition-delay: .5s;
+}
+.nav-links ul{
+    text-align: center;
+}
+.show{
+    height: 100vh;
+    width: 100%;
+    padding-top: 15vh;
+    font-size: 18px;
+    background-color: #000;
+    transition: .6s;
+    z-index: 1;
+    position: fixed;
+}
+.show ul li{
+    list-style: none;
+    padding: 40px 0; 
+    width: 45%;
+    margin: auto;
+}
+.show a{
+    color: #efefef;
+}
+.show ul{
+    text-align: center;
+}
+/***navigation for desktop**/
+@media only screen and (min-width: 768px){
+    #nav-toggle{
+        display: none;
+    }
+    .navigation{
+        height: 0;
+        position: static;
+    }
+    .logo1{
+        margin: 30px 35px;
+    }
+    .nav-links ul a{
+        color: #fff;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .nav-links ul a::after{
+        content: "";
+        width: 0;
+        left: 0;
+        bottom: 0;
+        transform-origin:;
+        transition: .4s;
+        opacity: 0;
+        position: absolute;
+        border-bottom: 1px solid #fff;
+        border-radius: 50px;
+    }
+    .nav-links ul a:hover::after{
+        opacity: 1;
+        width: 100%;
+    }
+    .nav-links{
+        padding-top: 35px;
+        height: 70px;
+        position: absolute;
+        font-size: 17px;
+    }
+    .nav-links  ul li{
+        display: inline-block;
+    }
+    .nav-btn a{
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        margin: 30px 45px;
+        border: 1px solid #fff;
+        padding: 9px 20px;
+    }
+    .nav-btn a:hover{
+        background-color: #fff;
+        color: #999;
+    }
+}
+/**start the header content. The mobile version first**/
+.angle-down{
+    display: none;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/harbor.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    background-attachment: fixed;
+    color: #f4f4f4;
+}
+.banner{
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+.banner h2{font-size: 250%;line-height: 38px;}.banner p{font-size: 115%;text-shadow: 1px 1px 3px #efefef;}
+.header-cont{overflow-x: hidden;    padding-top: 150px;
+}
+.header-cont img{
+    width: 100%;
+    margin-top: -12%;
+    margin-left: 15%;
+}
+.link-down{
+    width: 30%;
+    margin: auto;
+    margin-top: 26%;
+    text-align: center;
+}
+@keyframes zoom{
+    from{transform: scale(1);}to{transform: scale(.9);}
+}
+.btn-1{
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 15px 20px;
+    background-color: white;
+    z-index: -1;
+    color: #4c4c4c;
+    width: 120px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    animation: zoom 1s alternate infinite ease-in-out;
+}
+.link-down a{
+    padding: 10px 1px;
+}
+/**header for pc and large devices**/
+@media only screen and (min-width:768px){
+    .banner{
+        margin: 10% auto 0;
+        text-align: center;
+    }
+    .link-down{
+        margin-top: 9%;
+    }
+    .banner h2{font-size: 290%;}.banner p{font-size: 85%;}
+    .header-cont{overflow-x: hidden; text-align: center;}
+}
+/**staring the page content, mobile first**/
+#section1{
+    margin-bottom: 40px;
+}
+.sec-cont{
+    text-align: center;
+    margin: auto;
+    padding: 90px 0 0;
+    width: 85%;
+    color: #777;
+}
+/**containers where is located the plans for personal and companies**/
+.plans-space, .plans-space2{
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+    position: relative;
+    border-radius: 10px;
+    transition: .4s;
+}
+.plans-space p, .plans-space2 p{
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: absolute;
+    color: #777;
+    top: 0%;
+    margin: 18px 0 0 18px;
+}
+/**here is the sign and its animation***/
+.sign1{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 27px 18px 0 0;
+}
+.add-less-sign1{
+    width: 19px;
+    height: 2px;
+    background-color: #000;
+    transition: .4s;
+    transform: rotate(90deg) translateX(2px);
+}
+.add-less-sign2{
+    width: 19px;
+    height: 2px;
+    background-color: #000;
+}
+.add-less-sign3{
+    width: 19px;
+    height: 2px;
+    background-color: #000;
+    transition: .4s;
+    transform: rotate(90deg) translateX(2px);
+}
+.add-less-sign4{
+    width: 19px;
+    height: 2px;
+    background-color: #000;
+}
+.turning {
+    transform: translateY(2px);
+    transition: .4s;
+}
+/***here starts the animation to make the container grow***/
+.plans-space-sized{
+    height: 400px;
+    transition: .4s;
+}
+/**here goes the content inside the plans section the personal first**/
+.plans-cont, .plans-cont2{
+    display: none;
+}
+
+.price-top{
+    position: absolute;
+    width: 140px;
+    top: 80px; left: 35%;
+}
+.price-top h1{
+    font-size: 45px; 
+    color: #004e5a;
+}
+.price-top h1::before{
+    content: 'R$';
+    font-size: 20px;
+    left: 10px;
+    top: 21px;
+    position: absolute;
+}
+.price-top h1::after{
+    content: 'por';
+    font-size: 10px;
+    top: 12px;
+    left: 10px;
+    position: absolute;
+}
+.plans-list {
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 1px;
+    text-align: left;
+    position: absolute;
+    top: 190px;
+    left: 15%;
+}
+.sec-cont h4{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+/**now the business plan content **/
+
+
+/***here starts the section with just an  image**/
+
+
+
+/**starting of the section Destaques**/
+#section2 h1{
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eaeaea;
+}
+#section2 ul{
+    width: 100%;
+    margin: 20px auto;
+    text-align: left;
+}
+#section2 img{
+    width: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    
+}
+#section2 li{
+    text-align: center;
+    width: 49%;
+    margin: 25px 0;
+    display: inline-table;
+    
+}
+/**** start another section with just an image*****/
+#section3 img{
+    width: 100%;
+    margin-bottom: 90px;
+}
+#section3 p{
+    margin: 30px auto;
+    letter-spacing: 1px;
+    line-height: 29px;
+    font-family: 'Open sans Condensed', sans-serif;
+    width: 90%;
+}
+#section3 a{
+    padding: 0;
+    letter-spacing: 1px;
+    font-family: 'Open sans Condensed', sans-serif;
+    text-decoration: underline;
+    color: #777;
+}
+.bar-statistics{
+    margin-top: 80px;
+    text-align: center;
+    width: 100%;
+    height: 150px;
+    background-color: #024659;
+}
+.bar-stat-in{
+    width: 100%;
+    display: inline-flex;
+}
+.bar-statistics h1{
+    width: 25%;
+    color: #fff;
+    margin: 10% 5.8333%;
+    font-size: 20px;
+}
+/**** start another section with just an image*****/
+#section4{
+    background-color: #fff;
+}
+#section4 p{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 5px 0 26px;;
+}
+.profile{
+    padding: 15% 10%;
+}
+.profile h1{
+    font-size: 22px;
+}
+.profile img{
+    width: 67%;
+    border-radius: 100%;
+    margin-bottom: 30px;
+}
+.profile a{
+    font-size: 16px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    padding: 4px;
+    letter-spacing: 1px;
+    line-height: 25px;
+    color: #999;    
+}
+/***the social media styles***/
+.social-media {
+    padding: 60px 0 30px;;
+}
+.social-media img{
+    width: 35px;
+}
+.social-media a{
+    padding: 5px;
+}
+/***start the footer**/
+footer{
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+}
+footer p{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+footer a{
+    font-size: 15px;
+    font-family: sans-serif;
+    padding: 0;
+}
